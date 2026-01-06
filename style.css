@@ -1,0 +1,145 @@
+/* ===== Page layout ===== */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* ===== Main container ===== */
+.container {
+    background: white;
+    padding: 79px;
+    border-radius: 12px;
+    width: 700px;
+    height: 450px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    position: relative;
+    z-index: 0;
+}
+
+/* ===== Heading ===== */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== Form labels ===== */
+label {
+    font-size: 30px;
+    margin-top: 15px;
+    display: block;
+}
+
+/* ===== Inputs ===== */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+/* ===== Button ===== */
+button {
+    width: 100%;
+    padding: 18px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+}
+
+/* Keep text above glow */
+button span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Button inner background */
+button::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: black;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+/* Glowing border */
+button::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+
+    background: linear-gradient(45deg,
+            #FF0000, #FF7300, #FFFB00, #48FF00,
+            #00FFDF, #002BFF, #FF00C8, #FF0000);
+    background-size: 600%;
+    border-radius: 16px;
+    filter: blur(4px);
+
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Hover glow */
+button:hover::before {
+    opacity: 1;
+}
+
+/* Click effect */
+button:active::after {
+    background: transparent;
+}
+
+button:active {
+    color: #000;
+}
+
+/* ===== Glow animation ===== */
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* ===== Result text ===== */
+.result {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}

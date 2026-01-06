@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GSM Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>GSM Calculator</h2>
+
+        <label for="weight">Weight (grams)</label>
+        <input type="number" id="weight" placeholder="Enter weight">
+
+        <label for="length">Length (cm)</label>
+        <input type="number" id="length" placeholder="Enter length">
+
+        <label for="width">Width (cm)</label>
+        <input type="number" id="width" placeholder="Enter width">
+
+        <!-- Button -->
+        <button onclick="calculateGSM()">
+            <span>Calculate GSM</span>
+        </button>
+
+        <!-- Result -->
+        <div class="result" id="result">
+            GSM = —
+        </div>
+    </div>
+
+    <!-- JavaScript (ALWAYS at bottom) -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
